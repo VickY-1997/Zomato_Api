@@ -5,12 +5,14 @@ import authRoute from './routes/authRoute.js'
 import zomRoute from './routes/zomRoute.js'
 import {dbConnect} from './db.js'
 // import {protectRoute} from './middleware/protectRoute.js'
+import cors from 'cors'
 
 
 dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 2024
 
+app.use(cors()); 
 app.use(cookieParser())
 app.use(express.json())
 app.use('/api/auth', authRoute)
